@@ -1,25 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component, Suspense } from 'react'
+
 import './App.css';
+import './i18n'
+import Hello from './Hello'
+import ThankYou from './ThankYou'
+import LanguageSelector from './LanguageSelector'
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div>
+        <Suspense fallback={null}>
+          <LanguageSelector />
+          <Hello />
+          <ThankYou />
+        </Suspense>
+      </div>
   );
 }
 
